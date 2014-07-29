@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "GitHub Issue Filter Saver",
+  "description": "Automatically saves filters in GitHub issues.",
+  "version": "1.0",
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "*://*.github.com/"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
