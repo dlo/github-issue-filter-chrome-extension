@@ -33,6 +33,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         pos = url.indexOf("?");
         querystring = url.substring(pos);
         window.localStorage.setItem(key, querystring);
+        return {}
     },
     {urls: ["*://*.github.com/*/*/issues?*"]},
     []
