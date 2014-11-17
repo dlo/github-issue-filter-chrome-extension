@@ -13,14 +13,17 @@ chrome.webRequest.onBeforeRequest.addListener(
         // Replace with the saved URL if it exists.
         savedQuerystring = window.localStorage.getItem(keyFromURL(url));
         if (savedQuerystring) {
-            url = url + savedQuerystring;
+            url = "https://github.com/" + keyFromURL(url) + "/issues" + savedQuerystring
             return { redirectUrl: url };
         }
         else {
             return {};
         }
     },
-    {urls: ["*://*.github.com/*/*/issues"]},
+    {urls: [
+        "*://github.com/*/*/issues",
+        "*://github.com/*/*/issues?_pjax=*"
+    ]},
     ["blocking"]
 );
 
@@ -33,7 +36,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         window.localStorage.setItem(keyFromURL(url), querystring);
         return {}
     },
-    {urls: ["*://*.github.com/*/*/issues?*"]},
+    {urls: ["*://github.com/*/*/issues?q=*"]},
     []
 );
 
