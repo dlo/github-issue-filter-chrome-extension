@@ -21,8 +21,8 @@ chrome.webRequest.onBeforeRequest.addListener(
         }
     },
     {urls: [
-        "*://github.com/*/*/issues",
-        "*://github.com/*/*/issues?_pjax=*"
+        "*://*.github.com/*/*/issues",
+        "*://*.github.com/*/*/issues?_pjax=*"
     ]},
     ["blocking"]
 );
@@ -36,7 +36,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         window.localStorage.setItem(keyFromURL(url), querystring);
         return {}
     },
-    {urls: ["*://github.com/*/*/issues?q=*"]},
+    {urls: ["*://*.github.com/*/*/issues?q=*"]},
     []
 );
 
